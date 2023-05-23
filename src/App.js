@@ -1,10 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
+import { useEffect, useState } from 'react';
+// import TonWeb from 'tonweb';
+import {main} from "./logic";
+
+
 
 function App() {
+
+  const [data, setData] = useState("Abhi");
+  useEffect(()=>{
+    fun();
+  },[])
+
+  async function fun(){
+    let data = await main();
+    setData(data);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
+      address =* {data}
+      {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
@@ -17,7 +33,7 @@ function App() {
         >
           Learn React
         </a>
-      </header>
+      </header> */}
     </div>
   );
 }
