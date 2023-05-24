@@ -47,4 +47,4 @@ class AdnlAddress {
     }
 }
 
-module.exports.default = AdnlAddress;
+export default AdnlAddress;

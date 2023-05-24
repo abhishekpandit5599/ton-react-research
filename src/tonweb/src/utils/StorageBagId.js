@@ -47,4 +47,4 @@ class StorageBagId {
     }
 }
 
-module.exports.default = StorageBagId;
+export default StorageBagId;

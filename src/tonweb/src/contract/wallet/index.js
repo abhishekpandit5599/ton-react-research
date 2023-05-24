@@ -41,4 +41,4 @@ class Wallets {
 Wallets.all = ALL;
 Wallets.list = LIST;
 
-module.exports.default = Wallets;
+export default Wallets;
