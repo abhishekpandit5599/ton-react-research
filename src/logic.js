@@ -19,6 +19,7 @@ async function main() {
     const keyPair = await tonMnemonic.mnemonicToKeyPair(mnemonic);
     console.log("keyPair", keyPair);
 
+    console.log("window.TonWeb",window.TonWeb)
     let publicKey = await window.TonWeb.utils.bytesToBase64(keyPair.publicKey.slice(0, 32))
     console.log("publicKey", publicKey)
     const tonWeb = new window.TonWeb;
