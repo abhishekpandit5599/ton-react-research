@@ -18,7 +18,7 @@ const {
     readNBytesUIntFromArray,
     keyPairFromSeed,
     newKeyPair,
-    newSeed
+    // newSeed
 } = require("./Utils");
 
 const Address = require("./Address").default;
@@ -133,5 +133,5 @@ module.exports = {
     formatTransferUrl,
     keyPairFromSeed,
     newKeyPair,
-    newSeed
+    // newSeed
 };
