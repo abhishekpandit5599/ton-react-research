@@ -326,7 +326,7 @@ function newSeed() {
     return nacl.sign.keyPair().secretKey.slice(0, 32);
 }
 
-module.exports = {
+export {
     BN,
     nacl,
     sha256,

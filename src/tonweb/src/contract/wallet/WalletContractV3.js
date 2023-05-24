@@ -79,5 +79,5 @@ class WalletV3ContractR2 extends WalletV3ContractBase {
 WalletV3ContractR2.parseTransferQuery = parseWalletV3TransferQuery;
 WalletV3ContractR2.parseTransferBody = parseWalletV3TransferBody;
 
-module.exports = {WalletV3ContractR1, WalletV3ContractR2};
+export {WalletV3ContractR1, WalletV3ContractR2};
 

@@ -233,4 +233,4 @@ class WalletContract extends Contract {
     }
 }
 
-module.exports = {WalletContract};
+export {WalletContract};

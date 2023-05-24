@@ -56,4 +56,4 @@ class WalletV2ContractR2 extends WalletV2ContractBase {
     }
 }
 
-module.exports = {WalletV2ContractR1, WalletV2ContractR2};
+export {WalletV2ContractR1, WalletV2ContractR2};

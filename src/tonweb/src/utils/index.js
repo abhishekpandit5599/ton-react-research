@@ -108,7 +108,7 @@ function formatTransferUrl(address, amount, text) {
     return url + '?' + params.join('&');
 }
 
-module.exports = {
+export {
     Address,
     AdnlAddress,
     StorageBagId,

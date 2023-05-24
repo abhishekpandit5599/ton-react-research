@@ -127,4 +127,4 @@ function parseWalletV3TransferQuery(cell) {
     };
 }
 
-module.exports = {parseWalletV3TransferQuery, parseWalletV3TransferBody};
+export {parseWalletV3TransferQuery, parseWalletV3TransferBody};

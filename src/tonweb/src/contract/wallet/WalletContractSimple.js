@@ -48,5 +48,5 @@ class SimpleWalletContractR3 extends WalletContract {
     }
 }
 
-module.exports = {SimpleWalletContractR1, SimpleWalletContractR2, SimpleWalletContractR3};
+export {SimpleWalletContractR1, SimpleWalletContractR2, SimpleWalletContractR3};
 

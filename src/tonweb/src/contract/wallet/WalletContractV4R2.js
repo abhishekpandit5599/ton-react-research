@@ -162,4 +162,4 @@ class WalletV4ContractR2 extends WalletContract {
 WalletV4ContractR2.parseTransferQuery = parseWalletV3TransferQuery;
 WalletV4ContractR2.parseTransferBody = parseWalletV3TransferBody;
 
-module.exports = {WalletV4ContractR2};
+export {WalletV4ContractR2};
