@@ -13,4 +13,4 @@ class Payments {
     }
 }
 
-module.exports = {Payments, PaymentChannel};
+export {Payments, PaymentChannel};

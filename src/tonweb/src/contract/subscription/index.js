@@ -95,4 +95,4 @@ class SubscriptionContract extends Contract {
     }
 }
 
-module.exports = {SubscriptionContract};
+export {SubscriptionContract};

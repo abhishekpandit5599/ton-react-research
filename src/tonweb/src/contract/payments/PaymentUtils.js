@@ -244,7 +244,7 @@ const createTwoSignature = (params) => {
     return cell;
 }
 
-module.exports = {
+export {
     writePublicKey,
     writeSignature,
     createSignatureCell,

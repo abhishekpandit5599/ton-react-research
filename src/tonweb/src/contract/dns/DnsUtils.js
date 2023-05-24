@@ -259,7 +259,7 @@ const dnsResolve = async (provider, rootDnsAddress, domain, category, oneStep) =
     return dnsResolveImpl(provider, rootDnsAddress, rawDomainBytes, category, oneStep);
 }
 
-module.exports = {
+export {
     DNS_CATEGORY_NEXT_RESOLVER,
     DNS_CATEGORY_SITE,
     DNS_CATEGORY_WALLET,

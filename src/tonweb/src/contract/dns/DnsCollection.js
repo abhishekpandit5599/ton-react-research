@@ -81,4 +81,4 @@ class DnsCollection extends Contract {
     }
 }
 
-module.exports = {DnsCollection: DnsCollection};
+export {DnsCollection as DnsCollection};

@@ -323,4 +323,4 @@ class BitString {
     }
 }
 
-module.exports = {BitString};
+export {BitString};

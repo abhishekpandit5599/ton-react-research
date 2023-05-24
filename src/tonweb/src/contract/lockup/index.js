@@ -148,7 +148,7 @@ class LockupWalletV1 extends WalletContract {
     }
 }
 
-module.exports.default = {
+export default {
     LockupWalletV1,
     all: {
         'lockup-0.1': LockupWalletV1,

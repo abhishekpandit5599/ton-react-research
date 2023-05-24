@@ -149,4 +149,4 @@ class Slice {
 
 }
 
-module.exports = {Slice};
+export {Slice};

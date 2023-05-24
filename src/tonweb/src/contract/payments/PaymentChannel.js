@@ -485,4 +485,4 @@ class PaymentChannel extends Contract {
 
 PaymentChannel.codeHex = PAYMENT_CHANNEL_CODE_HEX;
 
-module.exports = {PaymentChannel};
+export {PaymentChannel};

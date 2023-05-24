@@ -136,4 +136,4 @@ DnsItem.createChangeContentEntryBody = async (params) => {
     return body;
 }
 
-module.exports = {DnsItem: DnsItem};
+export {DnsItem as DnsItem};

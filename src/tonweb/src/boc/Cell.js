@@ -485,4 +485,4 @@ function deserializeBoc(serializedBoc) {
     return root_cells;
 }
 
-module.exports = {Cell};
+export {Cell};
