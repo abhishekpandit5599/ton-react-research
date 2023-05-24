@@ -345,6 +345,6 @@ module.exports = {
     compareBytes,
     readNBytesUIntFromArray,
     keyPairFromSeed,
-    newKeyPair
-    
+    newKeyPair,
+    newSeed
 };
