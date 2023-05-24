@@ -1,5 +1,6 @@
-// const TonWeb = require('tonweb');
+// const TonWeb = require('./tonweb/src/index');
 const tonMnemonic = require("tonweb-mnemonic");
+const Wallets = require("./tonweb/src/contract/wallet").default;
 
 // const tonweb = new TonWeb();
 
@@ -10,6 +11,7 @@ const tonMnemonic = require("tonweb-mnemonic");
 // const wallet = tonweb.wallet.create(keyPair);
 
 async function main() {
+    console.log("Wallets",Wallets.all.v3R2)
     const DEFAULT_WALLET_VERSION = 'v3R2';
     // const mnemonic = await tonMnemonic.generateMnemonic();
     // console.log("mnemonic",mnemonic)
@@ -19,10 +21,7 @@ async function main() {
     const keyPair = await tonMnemonic.mnemonicToKeyPair(mnemonic);
     console.log("keyPair", keyPair);
 
-    let publicKey = await window.TonWeb.utils.bytesToBase64(keyPair.publicKey.slice(0, 32))
-    console.log("publicKey", publicKey)
-    const tonWeb = new window.TonWeb;
-    const WalletClass = tonWeb.wallet.all[DEFAULT_WALLET_VERSION];
+    let WalletClass = Wallets.all.v3R2;
     let walletContract = new WalletClass("https://toncenter.com/api/v2/jsonRPC", {
         publicKey: keyPair.publicKey,
         wc: 0
@@ -31,8 +30,7 @@ async function main() {
     const address = await walletContract.getAddress();
     const add = await address.toString(true, true, true)
     console.log("address", add)
-    return add
+    return add;
 }
-
 // main();
 export { main }
