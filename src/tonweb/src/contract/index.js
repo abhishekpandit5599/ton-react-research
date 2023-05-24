@@ -269,4 +269,4 @@ class Contract {
     }
 }
 
-module.exports = {Contract};
+export {Contract};
