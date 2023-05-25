@@ -111,4 +111,4 @@ class BlockSubscription {
     }
 }
 
-module.exports = {BlockSubscription};
+export {BlockSubscription};

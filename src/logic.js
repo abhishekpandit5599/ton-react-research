@@ -1,6 +1,7 @@
 // const TonWeb = require('./tonweb/src/index');
 const tonMnemonic = require("tonweb-mnemonic");
 const Wallets = require("./tonweb/src/contract/wallet").default;
+const HttpProvider = require("./tonweb/src/providers").default;
 
 // const tonweb = new TonWeb();
 
@@ -21,13 +22,19 @@ async function main() {
     const keyPair = await tonMnemonic.mnemonicToKeyPair(mnemonic);
 
     let WalletClass = d.all.v3R2;
-    let walletContract = new WalletClass("", {
+    let walletContract = new WalletClass("https://testnet.toncenter.com/api/v2/jsonRPC", {
         publicKey: keyPair.publicKey
     });
 
     const address = await walletContract.getAddress();
     const add = await address.toString(true, true, true)
     console.log("add", add)
+
+
+    let httpProvide = new HttpProvider("https://testnet.toncenter.com/api/v2/jsonRPC");
+    let balance = await httpProvide.getBalance("EQDYWEaGdAN24UyB2mXZzSh8Fsn301ZqSVYYAbdLAkddD0Bo");
+    console.log("balance",balance)
+
     return add;
 }
 // main();

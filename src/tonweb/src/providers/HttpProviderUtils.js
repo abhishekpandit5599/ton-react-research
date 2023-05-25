@@ -71,4 +71,4 @@ class HttpProviderUtils {
 
 }
 
-module.exports.default = HttpProviderUtils;
+export default HttpProviderUtils;

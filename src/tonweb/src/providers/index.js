@@ -2,9 +2,9 @@ const {Cell} = require("../boc");
 const {base64ToBytes} = require("../utils");
 const HttpProviderUtils = require('./HttpProviderUtils').default;
 
-if (typeof fetch === 'undefined') {
-    fetch = require('node-fetch');
-}
+// if (typeof fetch === 'undefined') {
+//     fetch = require('node-fetch');
+// }
 
 const SHARD_ID_ALL = '-9223372036854775808'; // 0x8000000000000000
 
@@ -234,4 +234,4 @@ class HttpProvider {
 
 HttpProvider.SHARD_ID_ALL = SHARD_ID_ALL;
 
-module.exports.default = HttpProvider;
+export default HttpProvider;

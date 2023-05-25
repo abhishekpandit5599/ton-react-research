@@ -101,4 +101,4 @@ class InMemoryBlockStorage {
 
 }
 
-module.exports = {InMemoryBlockStorage};
+export {InMemoryBlockStorage};
