@@ -207,7 +207,7 @@ function concatBytes(a, b) {
  */
 function compareBytes(a, b) {
     // TODO Make it smarter
-    return a.toString() === b.toString();
+    return JSON.stringify(a) === JSON.stringify(b);
 }
 
 const base64abc = (() => {

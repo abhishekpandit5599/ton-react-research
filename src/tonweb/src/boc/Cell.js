@@ -353,9 +353,17 @@ function parseBocHeader(serializedBoc) {
     const prefix = serializedBoc.slice(0, 4);
     console.log("prefix =========",prefix)
     console.log("prefix String =========",prefix.toString())
+    console.log("type of prefix String =========",typeof(prefix.toString()))
+    console.log("reachBocMagicPrefix  =========",reachBocMagicPrefix)
+    console.log("leanBocMagicPrefix  =========",leanBocMagicPrefix)
+    console.log("leanBocMagicPrefixCRC  =========",leanBocMagicPrefixCRC)
     console.log("reachBocMagicPrefix String =========",reachBocMagicPrefix.toString())
     console.log("leanBocMagicPrefix String =========",leanBocMagicPrefix.toString())
     console.log("leanBocMagicPrefixCRC String =========",leanBocMagicPrefixCRC.toString())
+
+
+    console.log("JSON Stringify  prefix *******************",JSON.stringify(prefix))
+    console.log("JSON Stringify  reachBocMagicPrefix *******************",JSON.stringify(reachBocMagicPrefix))
     serializedBoc = serializedBoc.slice(4);
     console.log("serializedBoc =========",serializedBoc)
     let has_idx, hash_crc32, has_cache_bits, flags, size_bytes;
