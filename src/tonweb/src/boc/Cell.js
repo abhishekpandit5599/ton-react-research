@@ -360,6 +360,7 @@ function parseBocHeader(serializedBoc) {
         has_cache_bits = flags_byte & 32;
         flags = (flags_byte & 16) * 2 + (flags_byte & 8);
         size_bytes = flags_byte % 8;
+        console.log("size_bytes ==> 1 ",size_bytes)
     }
     if (compareBytes(prefix, leanBocMagicPrefix)) {
         has_idx = 1;
@@ -367,6 +368,7 @@ function parseBocHeader(serializedBoc) {
         has_cache_bits = 0;
         flags = 0;
         size_bytes = serializedBoc[0];
+        console.log("size_bytes ==> 2 ",size_bytes)
     }
     if (compareBytes(prefix, leanBocMagicPrefixCRC)) {
         has_idx = 1;
@@ -374,6 +376,7 @@ function parseBocHeader(serializedBoc) {
         has_cache_bits = 0;
         flags = 0;
         size_bytes = serializedBoc[0];
+        console.log("size_bytes ==> 3 ",size_bytes)
     }
     serializedBoc = serializedBoc.slice(1);
     console.log("serializedBoc    3",serializedBoc)
