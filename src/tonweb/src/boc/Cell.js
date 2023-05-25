@@ -351,21 +351,7 @@ function parseBocHeader(serializedBoc) {
         throw "Not enough bytes for magic prefix";
     const inputData = serializedBoc; // Save copy for crc32
     const prefix = serializedBoc.slice(0, 4);
-    console.log("prefix =========",prefix)
-    console.log("prefix String =========",prefix.toString())
-    console.log("type of prefix String =========",typeof(prefix.toString()))
-    console.log("reachBocMagicPrefix  =========",reachBocMagicPrefix)
-    console.log("leanBocMagicPrefix  =========",leanBocMagicPrefix)
-    console.log("leanBocMagicPrefixCRC  =========",leanBocMagicPrefixCRC)
-    console.log("reachBocMagicPrefix String =========",reachBocMagicPrefix.toString())
-    console.log("leanBocMagicPrefix String =========",leanBocMagicPrefix.toString())
-    console.log("leanBocMagicPrefixCRC String =========",leanBocMagicPrefixCRC.toString())
-
-
-    console.log("JSON Stringify  prefix *******************",JSON.stringify(prefix))
-    console.log("JSON Stringify  reachBocMagicPrefix *******************",JSON.stringify(reachBocMagicPrefix))
     serializedBoc = serializedBoc.slice(4);
-    console.log("serializedBoc =========",serializedBoc)
     let has_idx, hash_crc32, has_cache_bits, flags, size_bytes;
     if (compareBytes(prefix, reachBocMagicPrefix)) {
         const flags_byte = serializedBoc[0];
@@ -374,7 +360,6 @@ function parseBocHeader(serializedBoc) {
         has_cache_bits = flags_byte & 32;
         flags = (flags_byte & 16) * 2 + (flags_byte & 8);
         size_bytes = flags_byte % 8;
-        console.log("size_bytes ==> 1 ",size_bytes)
     }
     if (compareBytes(prefix, leanBocMagicPrefix)) {
         has_idx = 1;
@@ -382,7 +367,6 @@ function parseBocHeader(serializedBoc) {
         has_cache_bits = 0;
         flags = 0;
         size_bytes = serializedBoc[0];
-        console.log("size_bytes ==> 2 ",size_bytes)
     }
     if (compareBytes(prefix, leanBocMagicPrefixCRC)) {
         has_idx = 1;
@@ -390,13 +374,8 @@ function parseBocHeader(serializedBoc) {
         has_cache_bits = 0;
         flags = 0;
         size_bytes = serializedBoc[0];
-        console.log("size_bytes ==> 3 ",size_bytes)
     }
     serializedBoc = serializedBoc.slice(1);
-    console.log("serializedBoc    3",serializedBoc)
-    console.log("serializedBoc.length < 1 + 5 * size_bytes",serializedBoc.length < 1 + 5 * size_bytes)
-    console.log("size_bytes",size_bytes)
-    console.log("serializedBoc.length",serializedBoc.length)
     if (serializedBoc.length < 1 + 5 * size_bytes)
         throw "Not enough bytes for encoding cells counters";
     const offset_bytes = serializedBoc[0];
