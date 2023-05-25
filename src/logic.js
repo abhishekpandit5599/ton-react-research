@@ -11,6 +11,7 @@ const Wallets = require("./tonweb/src/contract/wallet").default;
 // const wallet = tonweb.wallet.create(keyPair);
 
 async function main() {
+    console.log("All Wallets",Wallets)
     let d = new Wallets
     console.log("Wallets",d.all.v3R2)
     const DEFAULT_WALLET_VERSION = 'v3R2';
