@@ -25,9 +25,8 @@ async function main() {
 
     let WalletClass = d.all.v3R2;
     console.log("WalletClass",WalletClass)
-    let walletContract = new WalletClass("https://toncenter.com/api/v2/jsonRPC", {
-        publicKey: keyPair.publicKey,
-        wc: 0
+    let walletContract = new WalletClass("", {
+        publicKey: keyPair.publicKey
     });
 
     console.log("walletContract",walletContract)

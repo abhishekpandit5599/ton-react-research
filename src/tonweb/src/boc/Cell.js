@@ -376,6 +376,10 @@ function parseBocHeader(serializedBoc) {
         size_bytes = serializedBoc[0];
     }
     serializedBoc = serializedBoc.slice(1);
+    console.log("serializedBoc    3",serializedBoc)
+    console.log("serializedBoc.length < 1 + 5 * size_bytes",serializedBoc.length < 1 + 5 * size_bytes)
+    console.log("size_bytes",size_bytes)
+    console.log("serializedBoc.length",serializedBoc.length)
     if (serializedBoc.length < 1 + 5 * size_bytes)
         throw "Not enough bytes for encoding cells counters";
     const offset_bytes = serializedBoc[0];
@@ -457,8 +461,10 @@ function deserializeCellData(cellData, referenceIndexSize) {
  * @return {Cell[]} root cells
  */
 function deserializeBoc(serializedBoc) {
+    console.log("serializedBoc   1",serializedBoc)
     if (typeof (serializedBoc) == 'string') {
         serializedBoc = hexToBytes(serializedBoc);
+        console.log("serializedBoc   2",serializedBoc)
     }
     const header = parseBocHeader(serializedBoc);
     let cells_data = header.cells_data;
