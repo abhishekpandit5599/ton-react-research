@@ -11,9 +11,7 @@ const Wallets = require("./tonweb/src/contract/wallet").default;
 // const wallet = tonweb.wallet.create(keyPair);
 
 async function main() {
-    console.log("All Wallets",Wallets)
     let d = new Wallets
-    console.log("Wallets",d.all.v3R2)
     const DEFAULT_WALLET_VERSION = 'v3R2';
     // const mnemonic = await tonMnemonic.generateMnemonic();
     // console.log("mnemonic",mnemonic)
@@ -21,17 +19,13 @@ async function main() {
     const mnemonic = ['gossip', 'exotic', 'museum', 'earn', 'please', 'rose', 'stage', 'creek', 'theory', 'prefer', 'either', 'call', 'captain', 'uniform', 'shield', 'proof', 'apple', 'loan', 'zoo', 'empower', 'evoke', 'churn', 'lawsuit', 'deliver'];
 
     const keyPair = await tonMnemonic.mnemonicToKeyPair(mnemonic);
-    console.log("keyPair", keyPair);
 
     let WalletClass = d.all.v3R2;
-    console.log("WalletClass",WalletClass)
     let walletContract = new WalletClass("", {
         publicKey: keyPair.publicKey
     });
 
-    console.log("walletContract",walletContract)
     const address = await walletContract.getAddress();
-    console.log("address",address)
     const add = await address.toString(true, true, true)
     console.log("add", add)
     return add;

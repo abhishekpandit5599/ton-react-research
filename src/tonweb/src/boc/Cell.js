@@ -457,10 +457,8 @@ function deserializeCellData(cellData, referenceIndexSize) {
  * @return {Cell[]} root cells
  */
 function deserializeBoc(serializedBoc) {
-    console.log("serializedBoc   1",serializedBoc)
     if (typeof (serializedBoc) == 'string') {
         serializedBoc = hexToBytes(serializedBoc);
-        console.log("serializedBoc   2",serializedBoc)
     }
     const header = parseBocHeader(serializedBoc);
     let cells_data = header.cells_data;
