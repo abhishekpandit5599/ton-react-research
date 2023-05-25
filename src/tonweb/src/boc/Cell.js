@@ -351,7 +351,13 @@ function parseBocHeader(serializedBoc) {
         throw "Not enough bytes for magic prefix";
     const inputData = serializedBoc; // Save copy for crc32
     const prefix = serializedBoc.slice(0, 4);
+    console.log("prefix =========",prefix)
+    console.log("prefix String =========",prefix.toString())
+    console.log("reachBocMagicPrefix String =========",reachBocMagicPrefix.toString())
+    console.log("leanBocMagicPrefix String =========",leanBocMagicPrefix.toString())
+    console.log("leanBocMagicPrefixCRC String =========",leanBocMagicPrefixCRC.toString())
     serializedBoc = serializedBoc.slice(4);
+    console.log("serializedBoc =========",serializedBoc)
     let has_idx, hash_crc32, has_cache_bits, flags, size_bytes;
     if (compareBytes(prefix, reachBocMagicPrefix)) {
         const flags_byte = serializedBoc[0];
