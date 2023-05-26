@@ -18,19 +18,19 @@ class WalletContract extends Contract {
             /**
              * @param   params {{secretKey: Uint8Array, toAddress: Address | string, amount: BN | number, seqno: number, payload: string | Uint8Array | Cell, sendMode: number, stateInit?: Cell, expireAt?: number}}
              */
-            transfer: (params) => Contract.createMethod(provider, this.createTransferMessage(params.secretKey, params.toAddress, params.amount, params.seqno, params.payload, params.sendMode, !Boolean(params.secretKey), params.stateInit, params.expireAt)),
+            transfer: (params,provider) => Contract.createMethod(provider, this.createTransferMessage(params.secretKey, params.toAddress, params.amount, params.seqno, params.payload, params.sendMode, !Boolean(params.secretKey), params.stateInit, params.expireAt)),
 
             /**
              * @param   params {{secretKey: Uint8Array, seqno: number, expireAt?: number, messages: [{address: Address | string, amount: BN, payload?: string | Uint8Array | Cell, sendMode?: number, stateInit?: Cell }]}}
              */
-            transfers: (params) => Contract.createMethod(provider, this.createTransferMessages(params.secretKey, params.seqno, params.messages, !Boolean(params.secretKey), params.expireAt)),
+            transfers: (params,provider) => Contract.createMethod(provider, this.createTransferMessages(params.secretKey, params.seqno, params.messages, !Boolean(params.secretKey), params.expireAt)),
 
             seqno: () => {
                 return {
                     /**
                      * @return {Promise<number|null>}
                      */
-                    call: async () => {
+                    call: async (provider) => {
                         const address = await this.getAddress();
                         let n = null;
                         try {
@@ -46,7 +46,7 @@ class WalletContract extends Contract {
         /**
          * @param secretKey {Uint8Array}
          */
-        this.deploy = (secretKey) => Contract.createMethod(provider, this.createInitExternalMessage(secretKey));
+        this.deploy = (provider,secretKey) => Contract.createMethod(provider, this.createInitExternalMessage(secretKey));
     }
 
     getName() {
