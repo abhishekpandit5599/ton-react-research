@@ -188,4 +188,4 @@ class AppTon {
     }
 }
 
-module.exports = AppTon;
+export default AppTon;
