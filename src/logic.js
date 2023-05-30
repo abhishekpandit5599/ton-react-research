@@ -1,7 +1,8 @@
 const TonWeb = require('./tonweb/src/index');
+// const TonWeb = require('tonweb-kaios-wallet');
 const tonMnemonic = require("tonweb-mnemonic");
-const Wallets = require("./tonweb/src/contract/wallet").default;
-const HttpProvider = require("./tonweb/src/providers").default;
+// const Wallets = require("./tonweb/src/contract/wallet").default;
+// const HttpProvider = require("./tonweb/src/providers").default;
 
 // const tonweb = new TonWeb();
 
@@ -12,7 +13,7 @@ const HttpProvider = require("./tonweb/src/providers").default;
 // const wallet = tonweb.wallet.create(keyPair);
 
 async function main() {
-    let d = new Wallets
+    let d = new TonWeb.Wallets
     const DEFAULT_WALLET_VERSION = 'v3R2';
     // const mnemonic = await tonMnemonic.generateMnemonic();
     // console.log("mnemonic",mnemonic)
@@ -32,7 +33,7 @@ async function main() {
 
 
     // Balance Fetch
-    let httpProvide = new HttpProvider("https://testnet.toncenter.com/api/v2/jsonRPC");
+    let httpProvide = new TonWeb.HttpProvider("https://testnet.toncenter.com/api/v2/jsonRPC");
     // let balance = await httpProvide.getBalance("EQDYWEaGdAN24UyB2mXZzSh8Fsn301ZqSVYYAbdLAkddD0Bo");
     // console.log("balance",balance)
 
