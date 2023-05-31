@@ -119,4 +119,4 @@ class JettonMinter extends Contract {
 
 }
 
-module.exports = {JettonMinter};
+export {JettonMinter};

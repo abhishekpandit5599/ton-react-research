@@ -72,4 +72,4 @@ class NftSale extends Contract {
 
 NftSale.codeHex = NFT_SALE_HEX_CODE;
 
-module.exports = {NftSale};
+export {NftSale};

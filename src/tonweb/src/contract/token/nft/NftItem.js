@@ -102,4 +102,4 @@ class NftItem extends Contract {
 
 NftItem.codeHex = NFT_ITEM_CODE_HEX;
 
-module.exports = {NftItem};
+export {NftItem};

@@ -30,4 +30,4 @@ class NftMarketplace extends Contract {
 
 }
 
-module.exports = {NftMarketplace};
+export {NftMarketplace};

@@ -197,4 +197,4 @@ class NftCollection extends Contract {
     }
 }
 
-module.exports = {NftCollection};
+export {NftCollection};

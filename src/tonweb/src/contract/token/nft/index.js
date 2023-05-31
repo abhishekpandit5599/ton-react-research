@@ -3,7 +3,7 @@ const {NftItem} = require("./NftItem.js");
 const {NftMarketplace} = require("./NftMarketplace.js");
 const {NftSale} = require("./NftSale.js");
 
-module.exports.default = {
+export default {
     NftCollection,
     NftItem,
     NftMarketplace,

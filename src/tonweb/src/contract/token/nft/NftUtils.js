@@ -106,7 +106,7 @@ const getRoyaltyParams = async (provider, address) => {
     return {royalty, royaltyBase, royaltyFactor, royaltyAddress};
 }
 
-module.exports = {
+export {
     SNAKE_DATA_PREFIX,
     CHUNK_DATA_PREFIX,
     ONCHAIN_CONTENT_PREFIX,

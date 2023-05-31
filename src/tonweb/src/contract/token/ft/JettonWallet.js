@@ -62,4 +62,4 @@ class JettonWallet extends Contract {
 
 JettonWallet.codeHex = JETTON_WALLET_CODE_HEX;
 
-module.exports = {JettonWallet};
+export {JettonWallet};

@@ -1,7 +1,7 @@
 const {JettonMinter} = require("./JettonMinter.js");
 const {JettonWallet} = require("./JettonWallet.js");
 
-module.exports.default = {
+export default {
     JettonMinter,
     JettonWallet
 };
