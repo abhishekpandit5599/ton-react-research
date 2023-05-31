@@ -1,4 +1,4 @@
-const TonWeb = require('./tonweb/src/index');
+const TonWeb = require('./tonweb/src/index').default;
 // const TonWeb = require('tonweb-kaios-wallet');
 const tonMnemonic = require("tonweb-mnemonic");
 // const Wallets = require("./tonweb/src/contract/wallet").default;
@@ -34,40 +34,9 @@ async function main() {
 
     // Balance Fetch
     let httpProvide = new TonWeb.HttpProvider("https://testnet.toncenter.com/api/v2/jsonRPC");
-    // let balance = await httpProvide.getBalance("EQDYWEaGdAN24UyB2mXZzSh8Fsn301ZqSVYYAbdLAkddD0Bo");
-    // console.log("balance",balance)
+    let balance = await httpProvide.getBalance("EQDYWEaGdAN24UyB2mXZzSh8Fsn301ZqSVYYAbdLAkddD0Bo");
+    console.log("balance",balance)
 
-    // Transaction
-    // await walletContract.deploy(httpProvide,keyPair.secretKey).send();  // Deploy account on ton blockchain i.e - Active account trough it.
-
-    // const seqno = await walletContract.methods.seqno().call(httpProvide); // Get Seqno
-    // console.log("seqno",seqno);
-
-    // const transfer = await walletContract.methods.transfer({
-    //     secretKey: keyPair.secretKey,
-    //     toAddress: 'EQDjVXa_oltdBP64Nc__p397xLCvGm2IcZ1ba7anSW0NAkeP',
-    //     amount: TonWeb.utils.toNano("0.01"), // 0.01 TON
-    //     seqno: 2,
-    //     payload: 'Hello',
-    //     sendMode: 3,
-    // },httpProvide);
-
-    // const transferFee = await transfer.estimateFee(httpProvide);   // get estimate fee of transfer
-    // console.log("transferFee", transferFee)
-
-    // setTimeout(async()=>{
-    //     const transferSended = await transfer.send();  // send transfer query to blockchain
-    //     console.log("transferSended", transferSended)
-    // },2000)
-    // setTimeout(async()=>{
-    //     const transferQuery = await transfer.getQuery(); // get transfer query Cell
-    //     console.log("transferQuery", transferQuery)
-    // },2000)
-
-
-    // Get Transaction 
-    // let transaction = await httpProvide.getTransactions("EQDYWEaGdAN24UyB2mXZzSh8Fsn301ZqSVYYAbdLAkddD0Bo")
-    // console.log("transaction",transaction)
 
     return add;
 }
