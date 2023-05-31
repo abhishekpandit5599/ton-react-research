@@ -102,4 +102,4 @@ TonWeb.dns.DnsItem = DnsItem;
 TonWeb.payments = Payments;
 TonWeb.payments.PaymentChannel = PaymentChannel;
 
-export TonWeb;
+export default TonWeb;
