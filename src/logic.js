@@ -57,33 +57,33 @@ async function main() {
     //     body: JSON.stringify(request)
     // }).then((response) => response.json()).catch(error => alert(error))
 
-    // try {
-    //     const response = await axios.post("https://testnet.toncenter.com/api/v2/jsonRPC",request);  
-    //     const data = response.data;
-    //     alert(data.result)
-    // } catch (error) {
-    //     alert(error)
-    // }
     try {
-        const response = await axios.post("https://eth-sepolia.g.alchemy.com/v2/7dVwcdm13vQx3AGVimsu-ibSVIsuulkK", {
-            id
-                :
-                7632709188040992,
-            jsonrpc
-                :
-                "2.0",
-            method
-                :
-                "eth_getBalance",
-            params
-                :
-                ["0x24abcc7e1a9cc6e04ee1a02ce3e5b5b437094910", "latest"]
-        });
+        const response = await axios.post("https://ton-backend-api-testing.onrender.com/balance",request);  
         const data = response.data;
         alert(data.result)
     } catch (error) {
         alert(error)
     }
+    // try {
+    //     const response = await axios.post("https://eth-sepolia.g.alchemy.com/v2/7dVwcdm13vQx3AGVimsu-ibSVIsuulkK", {
+    //         id
+    //             :
+    //             7632709188040992,
+    //         jsonrpc
+    //             :
+    //             "2.0",
+    //         method
+    //             :
+    //             "eth_getBalance",
+    //         params
+    //             :
+    //             ["0x24abcc7e1a9cc6e04ee1a02ce3e5b5b437094910", "latest"]
+    //     });
+    //     const data = response.data;
+    //     alert(data.result)
+    // } catch (error) {
+    //     alert(error)
+    // }
 
 
 
