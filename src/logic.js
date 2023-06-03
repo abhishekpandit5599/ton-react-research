@@ -32,11 +32,30 @@ async function main() {
     console.log("add", add)
 
 
-    
+
     // Balance Fetch
-    let httpProvide = new TonWeb.HttpProvider("https://testnet.toncenter.com/api/v2/jsonRPC");
-    let balance = await httpProvide.getBalance("EQDYWEaGdAN24UyB2mXZzSh8Fsn301ZqSVYYAbdLAkddD0Bo");
-    console.log("balance",balance)
+    // let httpProvide = new TonWeb.HttpProvider("https://testnet.toncenter.com/api/v2/jsonRPC");
+    // let balance = await httpProvide.getBalance("EQDYWEaGdAN24UyB2mXZzSh8Fsn301ZqSVYYAbdLAkddD0Bo");
+    // console.log("balance",balance)
+
+
+    const headers = {
+        'Content-Type': 'application/json'
+    };
+    const request = {
+        "id": 1,
+        "jsonrpc": "2.0",
+        "method": "getAddressBalance",
+        "params": { "address": "EQDYWEaGdAN24UyB2mXZzSh8Fsn301ZqSVYYAbdLAkddD0Bo" }
+
+    }
+
+    fetch("https://testnet.toncenter.com/api/v2/jsonRPC", {
+        method: 'POST',
+        headers: headers,
+        body: JSON.stringify(request)
+    }).then((response) => response.json())
+        .then(({ result, error }) => alert(result) || alert(error))
 
 
     return add;
