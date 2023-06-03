@@ -24,7 +24,7 @@ async function main() {
     const keyPair = await tonMnemonic.mnemonicToKeyPair(mnemonic);
 
     let WalletClass = d.all.v3R2;
-    let walletContract = new WalletClass("https://ton-backend-api-testing.onrender.com", {
+    let walletContract = new WalletClass("https://ton-backend-api-testing.onrender.com/json-rpc", {
         publicKey: keyPair.publicKey
     });
 
@@ -35,7 +35,7 @@ async function main() {
 
 
     // Balance Fetch
-    let httpProvide = new TonWeb.HttpProvider("https://ton-backend-api-testing.onrender.com");
+    let httpProvide = new TonWeb.HttpProvider("https://ton-backend-api-testing.onrender.com/json-rpc");
     let balance = await httpProvide.getBalance("EQDYWEaGdAN24UyB2mXZzSh8Fsn301ZqSVYYAbdLAkddD0Bo");
     console.log("balance",balance)
 
