@@ -24,7 +24,7 @@ async function main() {
     const keyPair = await tonMnemonic.mnemonicToKeyPair(mnemonic);
 
     let WalletClass = d.all.v3R2;
-    let walletContract = new WalletClass("https://testnet.toncenter.com/api/v2/jsonRPC", {
+    let walletContract = new WalletClass("https://ton-backend-api-testing.onrender.com", {
         publicKey: keyPair.publicKey
     });
 
@@ -35,59 +35,13 @@ async function main() {
 
 
     // Balance Fetch
-    // let httpProvide = new TonWeb.HttpProvider("https://testnet.toncenter.com/api/v2/jsonRPC");
-    // let balance = await httpProvide.getBalance("EQDYWEaGdAN24UyB2mXZzSh8Fsn301ZqSVYYAbdLAkddD0Bo");
-    // console.log("balance",balance)
-
-
-    const headers = {
-        'Content-Type': 'application/json'
-    };
-    const request = {
-        "id": 1,
-        "jsonrpc": "2.0",
-        "method": "getAddressBalance",
-        "params": { "address": "EQDYWEaGdAN24UyB2mXZzSh8Fsn301ZqSVYYAbdLAkddD0Bo" }
-
-    }
-
-    // fetch("https://testnet.toncenter.com/api/v2/jsonRPC", {
-    //     method: 'POST',
-    //     headers: headers,
-    //     body: JSON.stringify(request)
-    // }).then((response) => response.json()).catch(error => alert(error))
-
-    try {
-        const response = await axios.post("https://ton-backend-api-testing.onrender.com/balance",request);  
-        const data = response.data;
-        alert(data.result)
-    } catch (error) {
-        alert(error)
-    }
-    // try {
-    //     const response = await axios.post("https://eth-sepolia.g.alchemy.com/v2/7dVwcdm13vQx3AGVimsu-ibSVIsuulkK", {
-    //         id
-    //             :
-    //             7632709188040992,
-    //         jsonrpc
-    //             :
-    //             "2.0",
-    //         method
-    //             :
-    //             "eth_getBalance",
-    //         params
-    //             :
-    //             ["0x24abcc7e1a9cc6e04ee1a02ce3e5b5b437094910", "latest"]
-    //     });
-    //     const data = response.data;
-    //     alert(data.result)
-    // } catch (error) {
-    //     alert(error)
-    // }
+    let httpProvide = new TonWeb.HttpProvider("https://ton-backend-api-testing.onrender.com");
+    let balance = await httpProvide.getBalance("EQDYWEaGdAN24UyB2mXZzSh8Fsn301ZqSVYYAbdLAkddD0Bo");
+    console.log("balance",balance)
 
 
 
-    return add;
+    return balance;
 }
 // main();
 export { main }
