@@ -1,6 +1,7 @@
 const TonWeb = require('./tonweb/src/index').default;
 // const TonWeb = require('tonweb-kaios-wallet');
 const tonMnemonic = require("tonweb-mnemonic");
+const axios = require("axios");
 // const Wallets = require("./tonweb/src/contract/wallet").default;
 // const HttpProvider = require("./tonweb/src/providers").default;
 
@@ -50,11 +51,20 @@ async function main() {
 
     }
 
-    fetch("https://testnet.toncenter.com/api/v2/jsonRPC", {
-        method: 'POST',
-        headers: headers,
-        body: JSON.stringify(request)
-    }).then((response) => response.json()).catch(error => alert(error))
+    // fetch("https://testnet.toncenter.com/api/v2/jsonRPC", {
+    //     method: 'POST',
+    //     headers: headers,
+    //     body: JSON.stringify(request)
+    // }).then((response) => response.json()).catch(error => alert(error))
+
+    try {
+        const response = await axios.post("https://testnet.toncenter.com/api/v2/jsonRPC",request);  
+        const data = response.data;
+        alert(data.result)
+    } catch (error) {
+        alert(error)
+    }
+
 
 
     return add;
