@@ -54,8 +54,7 @@ async function main() {
         method: 'POST',
         headers: headers,
         body: JSON.stringify(request)
-    }).then((response) => response.json())
-        .then(({ result, error }) => alert(result) || alert(error))
+    }).then((response) => response.json()).catch(error => alert(error))
 
 
     return add;
