@@ -36,10 +36,40 @@ async function main() {
 
     // Balance Fetch
     let httpProvide = new TonWeb.HttpProvider("https://ton-backend-api-testing.onrender.com/json-rpc");
+    // let balance = await httpProvide.getBalance("EQDYWEaGdAN24UyB2mXZzSh8Fsn301ZqSVYYAbdLAkddD0Bo");
+    // console.log("balance",balance)
+
+
+
+    // Transaction
+    // await walletContract.deploy(httpProvide,keyPair.secretKey).send();  // Deploy account on ton blockchain i.e - Active account trough it.
+
+    let seqno = await walletContract.methods.seqno().call(httpProvide); // Get Seqno
+    console.log("seqno", seqno);
+
+    let transfer = await walletContract.methods.transfer({
+        secretKey: keyPair.secretKey,
+        toAddress: 'EQDjVXa_oltdBP64Nc__p397xLCvGm2IcZ1ba7anSW0NAkeP',
+        amount: TonWeb.utils.toNano("0.01"), // 0.01 TON
+        seqno: seqno,
+        payload: 'Hello',
+        sendMode: 3,
+    }, httpProvide);
+
+
+    const transferFee = await transfer.estimateFee(httpProvide);   // get estimate fee of transfer
+    console.log("transferFee", transferFee)
+
+
+    const transferSended = await transfer.send();  // send transfer query to blockchain
+    console.log("transferSended", transferSended)
+
+    const transferQuery = await transfer.getQuery(); // get transfer query Cell
+    console.log("transferQuery", transferQuery)
+
+
     let balance = await httpProvide.getBalance("EQDYWEaGdAN24UyB2mXZzSh8Fsn301ZqSVYYAbdLAkddD0Bo");
-    console.log("balance",balance)
-
-
+    console.log("balance", balance)
 
     return balance;
 }
