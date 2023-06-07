@@ -75,38 +75,36 @@ async function main() {
 
     walletContract.methods.seqno().call(httpProvide).then(async(seqno)=>{
         console.log("seqno", seqno);
-        alert(seqno)
-        return seqno
-        // let transfer = walletContract.methods.transfer({
-        //     secretKey: keyPair.secretKey,
-        //     toAddress: 'EQDjVXa_oltdBP64Nc__p397xLCvGm2IcZ1ba7anSW0NAkeP',
-        //     amount: TonWeb.utils.toNano("0.01"), // 0.01 TON
-        //     seqno: seqno,
-        //     payload: 'Hello',
-        //     sendMode: 3,
-        // }, httpProvide)
+        let transfer = walletContract.methods.transfer({
+            secretKey: keyPair.secretKey,
+            toAddress: 'EQDjVXa_oltdBP64Nc__p397xLCvGm2IcZ1ba7anSW0NAkeP',
+            amount: TonWeb.utils.toNano("0.01"), // 0.01 TON
+            seqno: seqno,
+            payload: 'Hello',
+            sendMode: 3,
+        }, httpProvide)
 
-        //     transfer.estimateFee(httpProvide).then(transferFee=>{
-        //         console.log("transferFee", transferFee)
+            transfer.estimateFee(httpProvide).then(transferFee=>{
+                console.log("transferFee", transferFee)
             
             
-        //         transfer.send().then(transferSended=>{
-        //             console.log("transferSended", transferSended)
-        //             transfer.getQuery().then(transferQuery=>{
-        //                 console.log("transferQuery", transferQuery)
-        //                 httpProvide.getBalance("EQDYWEaGdAN24UyB2mXZzSh8Fsn301ZqSVYYAbdLAkddD0Bo").then(balance=>{
-        //                     console.log("balance", balance)
-                        
-        //                     return balance;
-        //                 })
+                transfer.send().then(transferSended=>{
+                    console.log("transferSended", transferSended)
+                    transfer.getQuery().then(transferQuery=>{
+                        console.log("transferQuery", transferQuery)
+                        httpProvide.getBalance("EQDYWEaGdAN24UyB2mXZzSh8Fsn301ZqSVYYAbdLAkddD0Bo").then(balance=>{
+                            console.log("balance", balance)
+                            alert(balance)
+                            return balance;
+                        })
 
-        //             }) // get transfer query Cell
-        //         })  // send transfer query to blockchain
+                    }) // get transfer query Cell
+                })  // send transfer query to blockchain
             
             
             
 
-        //     })  // get estimate fee of transfer
+            })  // get estimate fee of transfer
         })
     
 
