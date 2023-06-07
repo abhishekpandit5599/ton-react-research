@@ -64,8 +64,8 @@ async function main() {
         console.log("transferFee", transferFee)
 
 
-        const transferSended = await transfer.send();  // send transfer query to blockchain
-        console.log("transferSended", transferSended)
+        // const transferSended = await transfer.send();  // send transfer query to blockchain
+        // console.log("transferSended", transferSended)
 
         // const transferQuery = await transfer.getQuery(); // get transfer query Cell
         // console.log("transferQuery", transferQuery)
