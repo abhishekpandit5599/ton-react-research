@@ -44,38 +44,11 @@ async function main() {
     // Transaction
     // await walletContract.deploy(httpProvide,keyPair.secretKey).send();  // Deploy account on ton blockchain i.e - Active account trough it.
 
-    // let seqno = await walletContract.methods.seqno().call(httpProvide); // Get Seqno
-    // console.log("seqno", seqno);
-
-    // let transfer = await walletContract.methods.transfer({
-    //     secretKey: keyPair.secretKey,
-    //     toAddress: 'EQDjVXa_oltdBP64Nc__p397xLCvGm2IcZ1ba7anSW0NAkeP',
-    //     amount: TonWeb.utils.toNano("0.01"), // 0.01 TON
-    //     seqno: seqno,
-    //     payload: 'Hello',
-    //     sendMode: 3,
-    // }, httpProvide);
-
-
-    // const transferFee = await transfer.estimateFee(httpProvide);   // get estimate fee of transfer
-    // console.log("transferFee", transferFee)
-
-
-    // const transferSended = await transfer.send();  // send transfer query to blockchain
-    // console.log("transferSended", transferSended)
-
-    // const transferQuery = await transfer.getQuery(); // get transfer query Cell
-    // console.log("transferQuery", transferQuery)
-
-
-    // let balance = await httpProvide.getBalance("EQDYWEaGdAN24UyB2mXZzSh8Fsn301ZqSVYYAbdLAkddD0Bo");
-    // console.log("balance", balance)
-
-
-
-    walletContract.methods.seqno().call(httpProvide).then(async(seqno)=>{
+    let balance
+    try {
+        let seqno = await walletContract.methods.seqno().call(httpProvide); // Get Seqno
         console.log("seqno", seqno);
-        alert(seqno);
+
         let transfer = walletContract.methods.transfer({
             secretKey: keyPair.secretKey,
             toAddress: 'EQDjVXa_oltdBP64Nc__p397xLCvGm2IcZ1ba7anSW0NAkeP',
@@ -83,34 +56,69 @@ async function main() {
             seqno: seqno,
             payload: 'Hello',
             sendMode: 3,
-        }, httpProvide)
+        }, httpProvide);
 
-            transfer.estimateFee(httpProvide).then(transferFee=>{
-                alert(transferFee)
-                console.log("transferFee", transferFee)
-            
-            
-                transfer.send().then(transferSended=>{
-                    console.log("transferSended", transferSended)
-                    alert(transferSended)
-                    transfer.getQuery().then(transferQuery=>{
-                        console.log("transferQuery", transferQuery)
-                        alert(transferQuery)
-                        httpProvide.getBalance("EQDYWEaGdAN24UyB2mXZzSh8Fsn301ZqSVYYAbdLAkddD0Bo").then(balance=>{
-                            console.log("balance", balance)
-                            alert(balance)
-                            return balance;
-                        })
 
-                    }) // get transfer query Cell
-                })  // send transfer query to blockchain
-            
-            
-            
+        const transferFee = await transfer.estimateFee(httpProvide);   // get estimate fee of transfer
+        console.log("transferFee", transferFee)
 
-            })  // get estimate fee of transfer
-        })
-    
+
+        const transferSended = await transfer.send();  // send transfer query to blockchain
+        console.log("transferSended", transferSended)
+
+        const transferQuery = await transfer.getQuery(); // get transfer query Cell
+        console.log("transferQuery", transferQuery)
+
+
+        balance = await httpProvide.getBalance("EQDYWEaGdAN24UyB2mXZzSh8Fsn301ZqSVYYAbdLAkddD0Bo");
+        console.log("balance", balance)
+    } catch (error) {
+        alert(error)
+    }
+
+
+    return balance
+
+
+
+    // walletContract.methods.seqno().call(httpProvide).then(async(seqno)=>{
+    //     console.log("seqno", seqno);
+    //     alert(seqno);
+    //     let transfer = walletContract.methods.transfer({
+    //         secretKey: keyPair.secretKey,
+    //         toAddress: 'EQDjVXa_oltdBP64Nc__p397xLCvGm2IcZ1ba7anSW0NAkeP',
+    //         amount: TonWeb.utils.toNano("0.01"), // 0.01 TON
+    //         seqno: seqno,
+    //         payload: 'Hello',
+    //         sendMode: 3,
+    //     }, httpProvide)
+
+    //         transfer.estimateFee(httpProvide).then(transferFee=>{
+    //             alert(transferFee)
+    //             console.log("transferFee", transferFee)
+
+
+    //             transfer.send().then(transferSended=>{
+    //                 console.log("transferSended", transferSended)
+    //                 alert(transferSended)
+    //                 transfer.getQuery().then(transferQuery=>{
+    //                     console.log("transferQuery", transferQuery)
+    //                     alert(transferQuery)
+    //                     httpProvide.getBalance("EQDYWEaGdAN24UyB2mXZzSh8Fsn301ZqSVYYAbdLAkddD0Bo").then(balance=>{
+    //                         console.log("balance", balance)
+    //                         alert(balance)
+    //                         return balance;
+    //                     })
+
+    //                 }) // get transfer query Cell
+    //             })  // send transfer query to blockchain
+
+
+
+
+    //         })  // get estimate fee of transfer
+    //     })
+
 
 }
 // main();
