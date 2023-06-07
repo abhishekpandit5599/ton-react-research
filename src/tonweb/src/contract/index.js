@@ -252,6 +252,7 @@ class Contract {
             },
             estimateFee: async () => {
                 const query = await queryPromise;
+                alert(query.code)
                 const serialized = query.code ? // deploy
                     {
                         address: query.address.toString(true, true, false),
