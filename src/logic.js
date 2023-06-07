@@ -64,7 +64,7 @@ async function main() {
         console.log("transferFee", transferFee)
 
 
-        setTimeout(()=>{
+        setTimeout(async()=>{
             const transferSended = await transfer.send();  // send transfer query to blockchain
             console.log("transferSended", transferSended)
         },1000)
