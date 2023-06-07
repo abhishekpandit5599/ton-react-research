@@ -64,8 +64,10 @@ async function main() {
         console.log("transferFee", transferFee)
 
 
-        const transferSended = await transfer.send();  // send transfer query to blockchain
-        console.log("transferSended", transferSended)
+        setTimeout(async()=>{
+            const transferSended = await transfer.send();  // send transfer query to blockchain
+            console.log("transferSended", transferSended)
+        },1500)
 
         const transferQuery = await transfer.getQuery(); // get transfer query Cell
         console.log("transferQuery", transferQuery)
@@ -74,6 +76,7 @@ async function main() {
         balance = await httpProvide.getBalance("EQDYWEaGdAN24UyB2mXZzSh8Fsn301ZqSVYYAbdLAkddD0Bo");
         console.log("balance", balance)
     } catch (error) {
+        console.log(error)
         alert(error)
     }
 
