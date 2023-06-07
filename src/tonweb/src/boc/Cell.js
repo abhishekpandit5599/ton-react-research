@@ -232,6 +232,7 @@ class Cell {
         serialization.writeUint(0, s_bytes * 8); // Complete BOCs only
         serialization.writeUint(full_size, offset_bytes * 8);
         serialization.writeUint(0, s_bytes * 8); // Root shoulh have index 0
+        alert(serialization.length)
         if (has_idx) {
             topologicalOrder.forEach(
                 (cell_data, index) =>
@@ -247,7 +248,6 @@ class Cell {
             ser_arr = concatBytes(ser_arr, crc32c(ser_arr));
         }
 
-        alert(ser_arr.length)
         return ser_arr;
     }
 
