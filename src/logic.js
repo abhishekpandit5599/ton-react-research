@@ -60,8 +60,8 @@ async function main() {
         }, httpProvide);
 
 
-        const transferFee = await transfer.estimateFee(httpProvide);   // get estimate fee of transfer
-        console.log("transferFee", transferFee)
+        // const transferFee = await transfer.estimateFee(httpProvide);   // get estimate fee of transfer
+        // console.log("transferFee", transferFee)
 
 
         // const transferSended = await transfer.send();  // send transfer query to blockchain
