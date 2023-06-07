@@ -341,7 +341,7 @@ async function treeWalk(cell, topologicalOrderArray, indexHashmap, parentHash = 
         topologicalOrderArray = res[0];
         indexHashmap = res[1];
     }
-    alert(topologicalOrderArray.length)
+
     return [topologicalOrderArray, indexHashmap];
 }
 
