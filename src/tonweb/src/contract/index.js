@@ -263,7 +263,10 @@ class Contract {
                         body: bytesToBase64(await query.body.toBoc(false)),
                     };
                     alert(serialized.body)
-                    console.log("serialized",serialized.body)
+                    console.log("serialized",serialized)
+                    let len = await query.body.toBoc(false);
+                    console.log("await query.body.toBoc(false)",len.length)
+                    alert(len.length)
 
                 return provider.getEstimateFee(serialized);
             }
