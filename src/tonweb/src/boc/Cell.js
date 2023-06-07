@@ -222,6 +222,7 @@ class Cell {
         const offset_bytes = Math.max(Math.ceil(offset_bits / 8), 1);
 
         const serialization = new BitString((1023 + 32 * 4 + 32 * 3) * topologicalOrder.length);
+        alert(serialization.length)
         serialization.writeBytes(reachBocMagicPrefix);
         serialization.writeBitArray([has_idx, hash_crc32, has_cache_bits]);
         serialization.writeUint(flags, 2);
@@ -232,7 +233,6 @@ class Cell {
         serialization.writeUint(0, s_bytes * 8); // Complete BOCs only
         serialization.writeUint(full_size, offset_bytes * 8);
         serialization.writeUint(0, s_bytes * 8); // Root shoulh have index 0
-        alert(serialization.length)
         if (has_idx) {
             topologicalOrder.forEach(
                 (cell_data, index) =>
