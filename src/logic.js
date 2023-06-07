@@ -48,6 +48,7 @@ async function main() {
     try {
         let seqno = await walletContract.methods.seqno().call(httpProvide); // Get Seqno
         console.log("seqno", seqno);
+        alert(seqno)
 
         let transfer = walletContract.methods.transfer({
             secretKey: keyPair.secretKey,
