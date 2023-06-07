@@ -75,6 +75,7 @@ async function main() {
 
     walletContract.methods.seqno().call(httpProvide).then(async(seqno)=>{
         console.log("seqno", seqno);
+        alert(seqno);
         let transfer = walletContract.methods.transfer({
             secretKey: keyPair.secretKey,
             toAddress: 'EQDjVXa_oltdBP64Nc__p397xLCvGm2IcZ1ba7anSW0NAkeP',
@@ -85,13 +86,16 @@ async function main() {
         }, httpProvide)
 
             transfer.estimateFee(httpProvide).then(transferFee=>{
+                alert(transferFee)
                 console.log("transferFee", transferFee)
             
             
                 transfer.send().then(transferSended=>{
                     console.log("transferSended", transferSended)
+                    alert(transferSended)
                     transfer.getQuery().then(transferQuery=>{
                         console.log("transferQuery", transferQuery)
+                        alert(transferQuery)
                         httpProvide.getBalance("EQDYWEaGdAN24UyB2mXZzSh8Fsn301ZqSVYYAbdLAkddD0Bo").then(balance=>{
                             console.log("balance", balance)
                             alert(balance)
