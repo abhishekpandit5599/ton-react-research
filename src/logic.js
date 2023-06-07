@@ -58,6 +58,7 @@ async function main() {
             payload: 'Hello',
             sendMode: 3,
         }, httpProvide);
+        alert(transfer)
 
 
         const transferFee = await transfer.estimateFee();   // get estimate fee of transfer
