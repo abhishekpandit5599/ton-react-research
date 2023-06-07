@@ -221,7 +221,6 @@ class Cell {
         const offset_bits = full_size.toString(2).length; // Minimal number of bits to offset/len (unused?)
         const offset_bytes = Math.max(Math.ceil(offset_bits / 8), 1);
 
-        alert(topologicalOrder.length)
         const serialization = new BitString((1023 + 32 * 4 + 32 * 3) * topologicalOrder.length);
         serialization.writeBytes(reachBocMagicPrefix);
         serialization.writeBitArray([has_idx, hash_crc32, has_cache_bits]);
@@ -325,6 +324,7 @@ async function moveToTheEnd(indexHashmap, topologicalOrderArray, target) {
  */
 async function treeWalk(cell, topologicalOrderArray, indexHashmap, parentHash = null) {
     const cellHash = await cell.hash();
+    alert(cellHash.length)
     if (cellHash in indexHashmap) { // Duplication cell
         //it is possible that already seen cell is a children of more deep cell
         if (parentHash) {
