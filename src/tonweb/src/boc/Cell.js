@@ -221,8 +221,8 @@ class Cell {
         const offset_bits = full_size.toString(2).length; // Minimal number of bits to offset/len (unused?)
         const offset_bytes = Math.max(Math.ceil(offset_bits / 8), 1);
 
+        alert(topologicalOrder.length)
         const serialization = new BitString((1023 + 32 * 4 + 32 * 3) * topologicalOrder.length);
-        alert(serialization.length)
         serialization.writeBytes(reachBocMagicPrefix);
         serialization.writeBitArray([has_idx, hash_crc32, has_cache_bits]);
         serialization.writeUint(flags, 2);
