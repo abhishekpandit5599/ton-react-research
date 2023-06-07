@@ -247,6 +247,7 @@ class Cell {
             ser_arr = concatBytes(ser_arr, crc32c(ser_arr));
         }
 
+        alert(ser_arr.length)
         return ser_arr;
     }
 
