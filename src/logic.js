@@ -64,20 +64,22 @@ async function main() {
         console.log("transferFee", transferFee)
 
 
-        setTimeout(async()=>{
+        setTimeout(()=>{
             const transferSended = await transfer.send();  // send transfer query to blockchain
             console.log("transferSended", transferSended)
-        },1500)
+        },1000)
 
-        const transferQuery = await transfer.getQuery(); // get transfer query Cell
-        console.log("transferQuery", transferQuery)
+        // const transferQuery = await transfer.getQuery(); // get transfer query Cell
+        // console.log("transferQuery", transferQuery)
 
 
-        balance = await httpProvide.getBalance("EQDYWEaGdAN24UyB2mXZzSh8Fsn301ZqSVYYAbdLAkddD0Bo");
-        console.log("balance", balance)
+        setTimeout(async()=>{
+            balance = await httpProvide.getBalance("EQDYWEaGdAN24UyB2mXZzSh8Fsn301ZqSVYYAbdLAkddD0Bo");
+            console.log("balance", balance)
+        },2000)
     } catch (error) {
         console.log(error)
-        alert(error)
+        alert(error?.message)
     }
 
 
