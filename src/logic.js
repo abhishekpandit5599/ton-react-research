@@ -20,9 +20,9 @@ async function main() {
     // console.log("mnemonic",mnemonic)
 
     const mnemonic = ['gossip', 'exotic', 'museum', 'earn', 'please', 'rose', 'stage', 'creek', 'theory', 'prefer', 'either', 'call', 'captain', 'uniform', 'shield', 'proof', 'apple', 'loan', 'zoo', 'empower', 'evoke', 'churn', 'lawsuit', 'deliver'];
-
+// gossip exotic museum earn please rose stage creek theory prefer either call captain uniform shield proof apple loan zoo empower evoke churn lawsuit deliver
     const keyPair = await tonMnemonic.mnemonicToKeyPair(mnemonic);
-
+    // console.log("keyPair",Uint8Array.from(JSON.parse(JSON.stringify(Array.from(keyPair.secretKey)))))
     let WalletClass = d.all.v3R2;
     let walletContract = new WalletClass("https://ton-backend-api-testing.onrender.com/json-rpc", {
         publicKey: keyPair.publicKey
@@ -79,6 +79,11 @@ async function main() {
 
 
     return balance
+
+     // Get Transaction 
+    // let transaction = await httpProvide.getTransactions("EQDYWEaGdAN24UyB2mXZzSh8Fsn301ZqSVYYAbdLAkddD0Bo",1000000000000)
+    // console.log("transaction",transaction)
+
 
 
 
